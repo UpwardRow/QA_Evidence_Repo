@@ -9,6 +9,8 @@
       update_cache: true
 
   - name: Copy nginx file over
+    debug:
+      msg: "{{ nginx_info }}"
     copy:
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
