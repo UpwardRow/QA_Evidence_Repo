@@ -13,15 +13,7 @@
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
     register: nginx_config
-    failed_when: nginx_config.diff.before.path == nginx_config.diff.after.path
-
-  - name: Check path of before
-    debug:
-      msg: "{{ nginx_config.diff.before }}"
-
-  - name: Check path of after
-    debug:
-      msg: "{{ nginx_config.diff.after }}"
+    when: nginx_config.diff.before.path == nginx_config.diff.after.path
 
   - name: Restart nginx if needed
     service:
