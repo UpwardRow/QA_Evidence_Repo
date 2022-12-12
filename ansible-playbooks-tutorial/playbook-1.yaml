@@ -16,10 +16,10 @@
     when:
 
   - name: Check if copy nginx file over succeeded
+    vars:
+      var_after: "{{ nginx_config.diff.after }}"
+      var_before: "{{ nginx_config.diff.before }}"
     debug:
-      vars:
-        var_after: "{{ nginx_config.diff.after }}"
-        var_before: "{{ nginx_config.diff.before }}"
       msg: "{{var_after}}"
 
   - name: Restart nginx if needed
