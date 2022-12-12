@@ -9,12 +9,12 @@
       update_cache: true
 
   - name: Copy nginx file over
-    debug:
-      msg: "{{ nginx_config }}"
     copy:
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
     register: nginx_config
+    debug:
+      msg: "{{ nginx_config }}"
 
   - name: Restart nginx if needed
     service:
