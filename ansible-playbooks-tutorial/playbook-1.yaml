@@ -16,11 +16,7 @@
     vars:
       var_after: nginx_config.diff.after
       var_before: nginx_config.diff.before
-    when: not var_before == var_after
-
-  - name: Check if copy nginx file over succeeded
-    debug:
-      msg: "{{ var_after }} {{ var_before }}"
+    failed_when: not var_before == var_after
 
   - name: Restart nginx if needed
     service:
