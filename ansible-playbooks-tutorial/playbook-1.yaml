@@ -17,7 +17,7 @@
 
   - name: Check if copy nginx file over succeeded
     debug:
-      msg: "{{ nginx_config.after }}"
+      msg: "{{ nginx_config.diff.after }}"
 
   - name: Restart nginx if needed
     service:
