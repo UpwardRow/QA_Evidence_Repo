@@ -17,8 +17,9 @@
 
   - name: Check if copy nginx file over succeeded
     debug:
-      var_after: "{{ nginx_config.diff.after }}"
-      var_before: "{{ nginx_config.diff.before }}"
+      vars:
+        var_after: "{{ nginx_config.diff.after }}"
+        var_before: "{{ nginx_config.diff.before }}"
       msg: var_after
 
   - name: Restart nginx if needed
