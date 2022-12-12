@@ -13,10 +13,11 @@
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
     register: nginx_config
+    when:
 
   - name: Check if copy nginx file over succeeded
     debug:
-      msg: "{{ nginx_config }}"
+      msg: "{{ nginx_config.after }}"
 
   - name: Restart nginx if needed
     service:
