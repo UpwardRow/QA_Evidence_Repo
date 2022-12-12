@@ -9,13 +9,13 @@
       update_cache: true
 
   - name: Copy nginx file over
-    vars:
-      var_after: "{{ nginx_config.diff.after }}"
-      var_before: "{{ nginx_config.diff.before }}"
     copy:
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
     register: nginx_config
+    vars:
+      var_after: "{{ nginx_config.diff.after }}"
+      var_before: "{{ nginx_config.diff.before }}"
     when: not var_before == var_after
 
   - name: Check if copy nginx file over succeeded
