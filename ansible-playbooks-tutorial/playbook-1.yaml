@@ -13,10 +13,7 @@
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
     register: nginx_config
-    vars:
-      var_after: nginx_config.diff.after
-      var_before: nginx_config.diff.before
-    failed_when: var_before == var_after
+    failed_when: nginx_config.diff.before.path == nginx_config.diff.after.path
 
   - name: Check path of before
     debug:
