@@ -13,6 +13,8 @@
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
     register: nginx_config
+
+  - name: Check if copy nginx file over succeeded
     debug:
       msg: "{{ nginx_config }}"
 
