@@ -16,9 +16,15 @@
     vars:
       var_after: nginx_config.diff.after
       var_before: nginx_config.diff.before
-    debug:
-      msg: var_after && var_before
     failed_when: var_before == var_after
+
+  - name: Check path of before
+    debug:
+      msg: "{{ nginx_config.diff.before }}"
+
+  - name: Check path of after
+    debug:
+      msg: "{{ nginx_config.diff.after }}"
 
   - name: Restart nginx if needed
     service:
