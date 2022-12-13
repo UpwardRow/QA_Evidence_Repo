@@ -7,7 +7,7 @@
       name: nginx
       state: present
       update_cache: true
-    fail_when: cache_time_time
+    fail_when: cache_update_time
 
   - name: Copy nginx file over
     copy:
