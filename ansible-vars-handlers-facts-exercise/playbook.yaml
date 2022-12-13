@@ -10,5 +10,5 @@
 
   - name: Create file with name of host ip
     file:
-      path: "/home/ubuntu/projects/QA_Evidence_Repo/ansible-vars-handlers-facts-tutorial/{{ inventory_hostname }}"
+      path: "/home/ubuntu/projects/QA_Evidence_Repo/ansible-vars-handlers-facts-tutorial/{{ inventory_hostname }}.txt"
       state: touch
