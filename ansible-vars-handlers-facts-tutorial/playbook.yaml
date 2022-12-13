@@ -18,10 +18,6 @@
     template:
       src: "{{ path_to_nginx_conf }}"
       dest: /etc/nginx/nginx.conf
-  - name: Printing host OS
-    debug:
-        msg: ansible_facts{{ ansible_distribution }}
-    when: ansible_facts{{ ansible_distribution }} == ubuntu
 
   handlers:
   - name: Restart nginx
