@@ -1,7 +1,7 @@
 - hosts: all
   become: true
   vars:
-    os: ansible_facts{{ ansible_distribution }}
+    os: {{ ansible_facts['ansible_distribution'] }}
   tasks:
   - name: Clone GitHub Repo
     git:
@@ -18,4 +18,4 @@
   - name: Printing host OS
     debug:
       msg: os
-    when: os == "Ubuntu"
+    when: os == Ubuntu
