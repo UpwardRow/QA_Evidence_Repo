@@ -15,5 +15,5 @@
 
   - name: Printing host OS
     debug:
-      msg: "{{ ansible_facts['ansible_distribution'] }}"
-    when: ansible_facts['ansible_distribution']  == "Ubuntu"
+      msg: "{{ ansible_distribution }}"
+    when: ansible_distribution == "Ubuntu"
