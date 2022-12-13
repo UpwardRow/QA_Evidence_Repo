@@ -17,3 +17,4 @@
     debug:
       msg: "{{ ansible_distribution }}"
     when: "ansible_distribution == 'Ubuntu'"
+
