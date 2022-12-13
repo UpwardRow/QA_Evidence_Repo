@@ -1,0 +1,14 @@
+- hosts: all
+  become: true
+  tasks:
+  - name: Clone GitHub Repo
+    git:
+      repo: https://github.com/cuynu/ytvanced
+      dest: /home/ubuntu/projects/QA_Evidence_Repo/ansible-vars-handlers-facts-tutorial
+      clone: yes
+      update: yes
+
+  - name: Create file with name of host ip
+    file:
+      path: "/home/ubuntu/projects/QA_Evidence_Repo/ansible-vars-handlers-facts-tutorial/{{ inventory_hostname }}"
+      state: touch
