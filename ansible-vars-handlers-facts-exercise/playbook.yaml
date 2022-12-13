@@ -18,4 +18,4 @@
   - name: Printing host OS
     debug:
       msg: os
-    when: os == Ubuntu
+    when: os == "Ubuntu"
