@@ -1,5 +1,5 @@
 - hosts: all
   become: yes
   roles:
-    - common
-    - webserver
+  - /roles/roles/common
+  - /roles/roles/webserver
